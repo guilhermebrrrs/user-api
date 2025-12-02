@@ -1,0 +1,22 @@
+services:
+  mongo:
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+    image: mongo
+    networks:
+      - user_api_network
+    ports:
+      - 27017:27017
+    restart: always
+    volumes:
+      - ./user-api-data/db/data:/data/db
+
+networks:
+  user_api_network:
+    driver: bridge
+    
+
+
+    
+
